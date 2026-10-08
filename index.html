@@ -1,0 +1,545 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=D_k8KT8k1OrIKNpSgtFgL6gwkh3NnlftDw4gfoVF8QTd7mtdN3DI0kuRVNkNXA9vAf-oPtOtAetEnMXOZU7UDBC3Ih9XhE21LUpuD15SX2h31vRNYXzFVw46jHwj6mCa4RkIxvu0ufOG8dey5sOaZsNue9pUaBB2k5aaGZVMp7SKA5ASSsiBusHbB0lNsqJg-EAPtRPfCaSa1IKY2dRwwwGgHpifRuwrUTmB8KAeWxcm8mKTq7Tq_BHt63OfMFMZudMNcTSHsasuFjB98M0wKoxx6dGD6ySEdrnGYNEmj1NJzm96kraXxnCV6xIcF204oA0m6A2TzDyA3Z0ASCLah1QIWVVLhEkMdFpZFtf092aH4-zwC7SAF6xehKaJzn1G_vpa0gQPR82XxiakWasOh7Lq2rYRXXhxVYNvALS5XjbHDClql5l9SZxDVtQXdMFlo_Mkkr9rp5DOwRgmRw6Ruc22f_kNSmxIAo64Too063QylrXEqzL4qNy2vGYAmDDyOg8ZcvyYKr6QKLI93k3L0SDT0qemfU8J7ub6xxDKGxXrp9-8zXTEqv2XY3pUMHj6CH9H55LSJUnPNjZWZ1AAuuJkyALdL7j8DospvHRfoBiCpGY2BB5KjC0thx8cuUnfOt5ONPOxCe9oXBIvasY_D-1YOBLyLu1ZQ3ga0XiknFdJ1sAt2EkSUMLf6sEdO7Vi2hQ_TmlXJoVadprauTtP66skIKh0Csmv8pEBBZ5R9sPyQi88A39Rmw1P7ePFSxe8soQjb8QeBVZP7z-hzwqt3I0MKwbIzq737RDTCbx0rYH_QB8kMDHmkLhb4GpDAmXLITE0W4uxq0Ye0I-qBEby3G2yj7P5T6MQtg8Fe9mW91csArPXQwKXHKlxDI12j2SvIGo9bw-ji4G5JZavXvexwK56pWMcSbZ41bAffvFlNIQdujs9DBRb1Qc2C2z592St" charset="UTF-8"></script><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>DGA สช. Dashboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&family=Prompt:wght@500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F5F5FA; --surface:#FFFFFF; --surface-2:#F9F8FD; --ink:#1A1A2E; --muted:#585870; --faint:#8A89A0;
+  --line:#E3E1F0; --grid:#ECEAF5; --brand:#363092; --brand-ink:#363092; --brand-2:#5944B2; --brand-soft:#EFEDFA;
+  --band:#363092; --on-band:#FFFFFF; --on-band-muted:#D9D5F2;
+  --good:#1E6B2C; --good-soft:#E4F2E6; --warn:#A04000; --warn-soft:#FBEDE4; --amber-soft:#FFF4DE; --amber:#7A4B00;
+  --l1:#E57373; --l2:#F4C27F; --l3:#F5E07A; --l4:#8CC8F0; --l5:#2F8A3E; --on-level:#1A1A2E; --on-l5:#FFFFFF;
+  --s-min:#6B6B80; --s-pol:#0F7C7E; --s-top:#B26A00; --s-pub:#2B6CB0; --s-grp:#9083CC;
+  --shadow:0 1px 2px rgba(26,26,46,.06),0 4px 16px rgba(54,48,146,.06);
+  --th:'Sarabun','Leelawadee UI','Tahoma',sans-serif; --num:'Prompt','Sarabun',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#11111B; --surface:#1B1A29; --surface-2:#211F33; --ink:#ECEBF5; --muted:#AAA8C2; --faint:#7E7C98;
+    --line:#2F2D46; --grid:#26243A; --brand:#6F66D6; --brand-ink:#B3ACF2; --brand-2:#8F86E0; --brand-soft:#262447;
+    --band:#262170; --on-band:#FFFFFF; --on-band-muted:#C9C4F0;
+    --good:#7BD28A; --good-soft:#193322; --warn:#F2A06E; --warn-soft:#3A2418; --amber-soft:#35290F; --amber:#F0C46A;
+    --s-min:#9C9BB3; --s-pol:#3FB8BA; --s-top:#E0A040; --s-pub:#6AA6E6; --s-grp:#A99EE6;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#11111B; --surface:#1B1A29; --surface-2:#211F33; --ink:#ECEBF5; --muted:#AAA8C2; --faint:#7E7C98;
+  --line:#2F2D46; --grid:#26243A; --brand:#6F66D6; --brand-ink:#B3ACF2; --brand-2:#8F86E0; --brand-soft:#262447;
+  --band:#262170; --on-band:#FFFFFF; --on-band-muted:#C9C4F0;
+  --good:#7BD28A; --good-soft:#193322; --warn:#F2A06E; --warn-soft:#3A2418; --amber-soft:#35290F; --amber:#F0C46A;
+  --s-min:#9C9BB3; --s-pol:#3FB8BA; --s-top:#E0A040; --s-pub:#6AA6E6; --s-grp:#A99EE6;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--th);font-size:15px;line-height:1.55}
+button{font-family:inherit;color:inherit;cursor:pointer}
+button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--brand-2);outline-offset:2px}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums}
+.wrap{max-width:1360px;margin:0 auto;padding-inline:24px}
+@media (max-width:640px){.wrap{padding-inline:16px}}
+
+/* header */
+.band{background:var(--band);color:var(--on-band)}
+.band .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logo{background:#fff;border-radius:10px;padding:6px 8px;display:flex;flex-shrink:0}
+.logo img{height:46px;width:auto;display:block}
+.brand h1{margin:0;font-size:22px;font-weight:700;line-height:1.25;text-wrap:balance}
+.brand p{margin:0;font-size:14px;color:var(--on-band-muted)}
+.yearsel{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.yearsel span{font-size:14px;color:var(--on-band-muted)}
+.seg{display:flex;background:rgba(255,255,255,.12);border-radius:12px;padding:4px;gap:4px}
+.seg button{border:0;background:transparent;color:var(--on-band);font-family:var(--num);font-weight:600;font-size:16px;padding:8px 16px;border-radius:9px;min-height:40px}
+.seg button[aria-pressed="true"]{background:#fff;color:#363092}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:20px}
+@media (max-width:1100px){.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:2px;box-shadow:var(--shadow)}
+.kpi .lab{font-size:13px;color:var(--muted);font-weight:600}
+.kpi .val{font-family:var(--num);font-size:30px;font-weight:700;color:var(--brand-ink);line-height:1.2;font-variant-numeric:tabular-nums}
+.kpi .sub{font-size:13px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:10px;white-space:nowrap}
+.chip.good{background:var(--good-soft);color:var(--good)} .chip.warn{background:var(--warn-soft);color:var(--warn)} .chip.amber{background:var(--amber-soft);color:var(--amber)}
+
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-top:22px;overflow-x:auto}
+.tabs button{border:0;background:transparent;padding:12px 16px;font-size:15.5px;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;min-height:44px}
+.tabs button[aria-selected="true"]{color:var(--brand-ink);border-bottom-color:var(--brand-ink)}
+.panel{padding-block:20px 8px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow);min-width:0}
+.card h3{margin:0 0 4px;font-size:18px;font-weight:700}
+.card .hint{font-size:13.5px;color:var(--muted);margin:0 0 12px}
+.grid-2{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:16px}
+.grid-2b{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.grid-4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:980px){.grid-2,.grid-2b,.grid-3,.grid-4{grid-template-columns:minmax(0,1fr)}}
+.stack{display:flex;flex-direction:column;gap:16px}
+
+/* toggles */
+.toggles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.tg{display:flex;align-items:center;gap:8px;min-height:36px;padding:5px 12px;border-radius:18px;font-size:13.5px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--muted)}
+.tg[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:600}
+.tg i{width:20px;height:4px;border-radius:2px;display:inline-block}
+.chart svg{width:100%;height:auto;display:block}
+.chart text{font-family:var(--num);fill:var(--muted)}
+.yrs{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px;margin-top:6px;padding-left:5.5%;padding-right:1.5%}
+.yrs button{border:1px solid var(--line);background:var(--surface);border-radius:9px;font-family:var(--num);font-size:13px;font-weight:600;min-height:36px;padding:0;color:var(--brand-ink)}
+.yrs button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+
+.detail .big{font-family:var(--num);font-size:44px;font-weight:700;color:var(--brand-ink);line-height:1.1}
+.rows{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.rowx{display:grid;grid-template-columns:12px 1fr auto;gap:8px 10px;align-items:start;font-size:14px}
+.rowx i{width:12px;height:12px;border-radius:3px;margin-top:5px}
+.rowx b{font-family:var(--num);font-variant-numeric:tabular-nums}
+.rowx .d{grid-column:2 / span 2;font-size:13px;font-weight:600}
+.pos{color:var(--good)} .neg{color:var(--warn)}
+
+/* year cards */
+.yc{border-radius:16px;padding:18px;border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;gap:10px;cursor:pointer;text-align:left;box-shadow:var(--shadow)}
+.yc[aria-pressed="true"]{background:var(--band);border-color:var(--band);color:#fff}
+.yc[aria-pressed="true"] .m{color:var(--on-band-muted)}
+.yc .top{display:flex;justify-content:space-between;align-items:center}
+.yc .y{font-family:var(--num);font-size:20px;font-weight:700}
+.yc .s{font-family:var(--num);font-size:38px;font-weight:700;line-height:1.1}
+.yc .m{font-size:13px;color:var(--muted)}
+.scale{display:flex;gap:4px}.scale span{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.yc[aria-pressed="true"] .scale span{background:rgba(255,255,255,.22)}
+.yc[aria-pressed="true"] .scale span.on{background:#fff}
+.scale span.on{background:var(--brand)}
+.yc .kv{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13.5px}
+.yc .kv b{display:block;font-size:15px}
+
+/* pillars */
+.pl{display:flex;flex-direction:column;gap:8px}
+.prow{display:grid;grid-template-columns:minmax(150px,1.1fr) minmax(0,2fr) 76px;gap:14px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);text-align:left;width:100%}
+.prow[aria-pressed="true"]{border:2px solid var(--brand);padding:11px 13px;background:var(--brand-soft)}
+@media (max-width:560px){.prow{grid-template-columns:1fr;gap:8px}}
+.prow .pid{font-family:var(--num);font-size:12px;font-weight:600;color:var(--brand-2);letter-spacing:.04em}
+.prow .pn{font-size:15px;font-weight:700;line-height:1.3}
+.prow .pe{font-size:12.5px;color:var(--muted)}
+.bars{display:flex;flex-direction:column;gap:4px}
+.bar{display:grid;grid-template-columns:38px minmax(0,1fr) 54px 54px;gap:8px;align-items:center;font-size:12.5px}
+.bar .t{height:11px;border-radius:6px;background:var(--grid);position:relative;overflow:hidden}
+.bar .t span{position:absolute;inset:0 auto 0 0;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(26,26,46,.18)}
+.bar .yl{color:var(--muted);font-family:var(--num)}
+.bar b{font-family:var(--num);font-variant-numeric:tabular-nums}
+.bar em{font-style:normal;color:var(--muted)}
+.bar.sel b{color:var(--brand-ink)}
+.delta{font-family:var(--num);font-size:18px;font-weight:700;text-align:right}
+.lvl{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;padding:0 7px;border-radius:7px;font-family:var(--num);font-size:13.5px;font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted);align-items:center;margin-bottom:10px}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
+.hb{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr) 58px;gap:10px;align-items:center;font-size:13.5px}
+.hb .t{height:12px;border-radius:6px;background:var(--grid);position:relative;overflow:hidden}
+.hb .t span{position:absolute;inset:0 auto 0 0;border-radius:6px}
+.hb b{font-family:var(--num);text-align:right;font-variant-numeric:tabular-nums}
+.note{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14.5px;line-height:1.6}
+
+/* matrix */
+.mx{overflow-x:auto}
+.mx table{table-layout:fixed;border-collapse:separate;border-spacing:5px;width:100%;min-width:560px}
+.mx th{font-size:12.5px;color:var(--muted);font-weight:600;text-align:center;line-height:1.3}
+.mx th:first-child{text-align:left}
+.mx td{text-align:center;font-family:var(--num);font-weight:700;font-size:16px;height:44px;border-radius:8px}
+.mx td.y{background:transparent;color:var(--brand-ink);text-align:left;font-size:17px}
+.mx td.c5{color:var(--good)} .mx td.c4{color:#1F5F99}
+:root[data-theme="dark"] .mx td.c4{color:#8CC8F0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .mx td.c4{color:#8CC8F0}}
+.mx tr.cur td.y{text-decoration:underline;text-underline-offset:4px}
+.crit{overflow-x:auto}
+.crit table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+.crit th,.crit td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;vertical-align:top}
+.crit th{font-size:13px;color:var(--muted);font-weight:700}
+.crit td:first-child,.crit th:first-child{text-align:left}
+.crit .pts{font-family:var(--num);font-size:20px;font-weight:700;color:var(--brand-ink)}
+.crit tr.hi td{background:var(--amber-soft)}
+.sim{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.sim button{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 12px;font-size:14px;min-height:44px;text-align:left}
+.sim button[aria-pressed="true"]{border-color:var(--l5);background:var(--good-soft);color:var(--good);font-weight:700}
+.sim .box{width:18px;height:18px;border-radius:5px;border:2px solid currentColor;display:inline-flex;align-items:center;justify-content:center;font-size:12px}
+.result{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.result{grid-template-columns:1fr}}
+.result > div{border-radius:12px;padding:12px 14px;background:var(--surface-2);border:1px solid var(--line)}
+.result .n{font-family:var(--num);font-size:28px;font-weight:700;color:var(--brand-ink)}
+
+/* causes */
+.cause{display:flex;flex-direction:column;gap:12px}
+.cause .hd{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.cause .pid{font-family:var(--num);font-size:12.5px;font-weight:600;color:var(--brand-2)}
+.cause h4{margin:2px 0 0;font-size:18px;line-height:1.3}
+.cause dl{display:grid;grid-template-columns:104px 1fr;gap:8px 12px;margin:0;font-size:14.5px;line-height:1.6}
+.cause dt{font-weight:700}
+.cause dd{margin:0;color:var(--ink)}
+.cause dt.c1{color:var(--good)} .cause dt.c2{color:var(--warn)} .cause dt.c3{color:var(--brand-ink)}
+@media (max-width:560px){.cause dl{grid-template-columns:1fr}}
+.subchips{display:flex;flex-wrap:wrap;gap:6px}
+.gauge{display:grid;grid-template-columns:110px minmax(0,1fr) 46px;gap:10px;align-items:center;font-size:14px}
+.gauge .tr{position:relative;height:24px}
+.gauge .tr:before{content:"";position:absolute;left:0;right:0;top:10px;height:4px;border-radius:2px;background:var(--grid)}
+.gauge .tr .four{position:absolute;left:50%;top:0;width:2px;height:24px;background:var(--l4)}
+.gauge .tr .dot{position:absolute;top:3px;width:18px;height:18px;margin-left:-9px;border-radius:9px;border:2px solid var(--surface)}
+.gauge b{font-family:var(--num);text-align:right}
+.lev{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.lev .n{background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.5}
+.card.dark{background:var(--band);border-color:var(--band);color:#fff}
+.card.dark .hint{color:var(--on-band-muted)}
+.acts{overflow-x:auto}
+.acts table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+.acts th{text-align:left;font-size:13px;color:var(--muted);padding:10px;border-bottom:1px solid var(--line)}
+.acts td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+.acts .no{width:34px;height:34px;border-radius:9px;background:var(--brand);color:#fff;font-family:var(--num);font-weight:700;display:flex;align-items:center;justify-content:center}
+.acts tr{cursor:pointer}
+.acts tr[aria-pressed="true"] td{background:var(--good-soft)}
+.acts .eff{font-weight:700;color:var(--brand-ink)}
+.check{width:22px;height:22px;border-radius:6px;border:2px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-size:13px;color:var(--good)}
+tr[aria-pressed="true"] .check{border-color:var(--good);background:var(--good-soft)}
+
+/* track */
+.tsum{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:14px}
+@media (max-width:900px){.tsum{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tsum button{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px;text-align:left;min-height:44px}
+.tsum button[aria-pressed="true"]{border-color:var(--brand);background:var(--brand-soft)}
+.tsum .n{font-family:var(--num);font-size:24px;font-weight:700;display:block}
+.tsum .l{font-size:13px;color:var(--muted)}
+.trk{display:flex;flex-direction:column;gap:10px}
+.ti{border:1px solid var(--line);border-left-width:5px;border-radius:12px;background:var(--surface);padding:14px 16px;display:grid;grid-template-columns:minmax(170px,1fr) minmax(0,3fr);gap:14px}
+@media (max-width:760px){.ti{grid-template-columns:1fr}}
+.ti .nm{font-weight:700;font-size:15.5px;line-height:1.35}
+.ti .pl{font-family:var(--num);font-size:12px;color:var(--brand-2);font-weight:600}
+.ti .lv{display:flex;align-items:center;gap:6px;margin-top:8px;font-family:var(--num);color:var(--muted)}
+.ti .cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;font-size:14px;line-height:1.55}
+@media (max-width:560px){.ti .cmp{grid-template-columns:1fr}}
+.ti .cmp div{background:var(--surface-2);border-radius:9px;padding:9px 11px}
+.ti .cmp b{display:block;font-size:12.5px;color:var(--muted);margin-bottom:2px}
+.ti .act{grid-column:2;font-size:14px;line-height:1.55}
+@media (max-width:760px){.ti .act{grid-column:1}}
+footer{margin-top:26px;padding-block:18px 30px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.65}
+footer b{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){.bar .t span,.hb .t span{transition:width .35s ease}}
+</style>
+
+<header class="band">
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo"><img src="data:image/png;base64,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" alt="ตราสำนักงานคณะกรรมการสุขภาพแห่งชาติ"></div>
+      <div>
+        <h1>ความพร้อมรัฐบาลดิจิทัล (DGA) สช.</h1>
+        <p>สถิติคะแนน 2561–2569 · วิเคราะห์เชิงลึก 2567–2569</p>
+      </div>
+    </div>
+    <div class="yearsel"><span id="yl">ปีที่วิเคราะห์</span><div class="seg" role="group" aria-labelledby="yl" id="yearSeg"></div></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="kpis" id="kpis" aria-live="polite"></section>
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+  <section class="panel" id="panel"></section>
+  <footer>
+    <b>ที่มา</b> แบบสำรวจ (คำตอบ) ของ สช. ปี 2568 และ 2569 · รายงานผลการสำรวจระดับความพร้อมรัฐบาลดิจิทัลหน่วยงานภาครัฐ ประจำปี 2567, 2568, 2569 (DGA) และตารางสถิติคะแนน สช. ปี 2561–2569 · เกณฑ์ ก.พ.ร. ตัวชี้วัด 2.1 ปีงบประมาณ 2568–2570<br>
+    <b>ข้อควรระวัง</b> ตัวเลขปี 2567–2569 ยึดตามรายงานผลการสำรวจของ DGA เป็นหลัก ปี 2561–2566 ใช้ตารางสถิติคะแนน · เกณฑ์และกลุ่มเปรียบเทียบของ DGA ปรับทุกปี ควรอ่านเป็นแนวโน้ม · ปี 2566 เป็นคะแนนที่ปรับแล้ว · ระดับตัวชี้วัดย่อยอ่านจากตารางสีในรายงานปี 2569<br>
+    กลุ่มงานเทคโนโลยีดิจิทัล สช.
+  </footer>
+</main>
+
+<script>
+(function(){
+var N=null;
+var YRS=[2561,2562,2563,2564,2565,2566,2567,2568,2569];
+var SER=[
+ {k:'nhco',name:'สช.',c:'--brand',v:[48.00,66.57,55.39,65.92,61.34,70.74,65.11,84.88,92.12]},
+ {k:'min',name:'เฉลี่ยกรมฯ ภายใต้กระทรวงต้นสังกัด',c:'--s-min',dash:'6 5',v:[59.10,59.85,49.83,52.53,50.71,47.44,59.10,69.72,75.07]},
+ {k:'pol',name:'เฉลี่ยกรมฯ ที่จัดทำนโยบาย/ประสานงาน',c:'--s-pol',v:[N,N,N,N,54.64,55.58,64.03,76.42,77.32]},
+ {k:'top',name:'อันดับ 1 กลุ่มนโยบายฯ',c:'--s-top',v:[N,N,92.41,87.02,89.00,88.89,92.28,96.85,95.16]},
+ {k:'pub',name:'เฉลี่ยองค์การมหาชน',c:'--s-pub',v:[N,N,N,N,N,N,59.59,74.82,79.55]},
+ {k:'grp',name:'เฉลี่ยกลุ่มเดียวกัน (เกณฑ์เดิม)',c:'--s-grp',dash:'3 4',v:[59.90,64.60,62.06,60.41,59.24,N,N,N,N]}
+];
+var P=[
+ {id:1,th:'แนวนโยบายและหลักปฏิบัติ',en:'Policies and Practices',v:[63.85,95.00,98.75],lv:[3,4,5],
+  b:{2567:[100,75.72,73.45,73.37],2568:[100,82.38,77.17,71.04],2569:[97.50,87.69,89.94,81.34]},
+  sub:[['Digital Policy',95.00,5],['Cybersecurity Policy',100,5],['Legal & Regulatory Mechanism',100,5],['Data Policy',100,5]],
+  note:'ระดับ 5 ในปี 2569 และสูงกว่าอันดับ 1 ของกลุ่ม เหลือ Digital Policy (95%) ที่ยังไม่เต็ม'},
+ {id:2,th:'กระบวนการพัฒนาด้วยข้อมูล',en:'Data-driven Practices',v:[38.33,81.54,90.22],lv:[2,4,4],
+  b:{2567:[89.43,52.35,47.85,47.69],2568:[96.89,73.92,71.05,64.25],2569:[92.00,76.25,78.23,72.48]},
+  sub:[['Data Governance',100,5],['Shared Data',80.00,4],['Open Data',60.00,3],['Data Privacy',93.33,5]],
+  note:'โตมากที่สุด +51.89 จุดใน 2 ปี แต่ Open Data 60% ต่ำกว่าค่าเฉลี่ยทุกกลุ่ม (65–68%) และเป็น Pillar ที่เปราะที่สุด'},
+ {id:3,th:'ศักยภาพเจ้าหน้าที่ภาครัฐด้านดิจิทัล',en:'Digital Capability',v:[40.21,59.55,84.31],lv:[2,3,4],
+  b:{2567:[88.82,57.25,42.86,45.86],2568:[91.73,64.45,61.68,56.86],2569:[93.17,68.18,68.46,60.79]},
+  sub:[['Digital Leadership',80.00,4],['Training and Development',100,5],['Digital Competency',73.27,4]],
+  note:'คะแนนต่ำสุดของ สช. ปี 2568–2569 ขึ้นระดับ 5 ได้ต้องยกทั้ง Digital Competency และ Digital Leadership'},
+ {id:4,th:'บริการภาครัฐ',en:'Public Services',v:[86.57,95.20,93.84],lv:[4,5,4],
+  b:{2567:[90.65,64.08,64.89,61.02],2568:[97.87,80.16,81.20,76.52],2569:[95.62,77.25,81.11,78.64]},
+  sub:[['Service Provision',98.81,5],['Promotion for Digital Service Usage',100,5],['Customer Experience',88.00,5],['Public Participation',86.67,4]],
+  note:'ลดจากระดับ 5 เป็น 4 ในปี 2569 ขาด Public Participation ตัวเดียว'},
+ {id:5,th:'การบริหารจัดการรูปแบบดิจิทัล',en:'Smart Back Office',v:[82.00,100,100],lv:[4,5,5],
+  b:{2567:[97.00,67.19,64.25,64.48],2568:[100,79.72,79.61,75.55],2569:[98.00,84.16,86.37,83.79]},
+  sub:[['Integrated Enterprise',100,5],['Process Optimization',100,5]],
+  note:'เต็ม 100% ต่อเนื่อง 2 ปี จุดแข็งที่ต้องรักษา'},
+ {id:6,th:'โครงสร้างพื้นฐานความมั่นคงปลอดภัยและมีประสิทธิภาพ',en:'Secure and Efficient Infrastructure',v:[70.00,83.00,96.75],lv:[3,4,5],
+  b:{2567:[97.33,70.64,64.36,66.23],2568:[96.88,81.43,78.29,73.71],2569:[94.38,83.13,83.14,82.25]},
+  sub:[['Reliable Infrastructure',96.67,5],['Cybersecurity',96.88,5]],
+  note:'ขึ้นเป็นระดับ 5 ในปี 2569 (+13.75 จุด) สูงกว่าอันดับ 1 ของกลุ่ม'},
+ {id:7,th:'เทคโนโลยีดิจิทัลและการนำไปใช้',en:'Digital Technology Practices',v:[60.00,82.14,85.71],lv:[3,5,4],
+  b:{2567:[83.13,68.88,67.96,65.83],2568:[97.14,77.41,76.78,71.87],2569:[100,76.11,80.61,76.25]},
+  sub:[['Digital Technology Practices',93.33,5],['AI Initiative',80.00,4]],
+  note:'ลดจากระดับ 5 เป็น 4 ในปี 2569 ขาด AI Initiative ตัวเดียว (อันดับ 1 ได้ 100%)'}
+];
+var BN=['อันดับ 1 กลุ่มนโยบายฯ','เฉลี่ยกลุ่มนโยบายฯ','เฉลี่ยองค์การมหาชน','เฉลี่ยกรมฯ ในกระทรวง'];
+var TOT={2567:{s:65.11,prev:70.74,lv:3,lvn:'Defined',pol:64.03,pub:59.59,min:59.10,top:92.28},
+         2568:{s:84.88,prev:65.11,lv:4,lvn:'Integrated',pol:76.42,pub:74.82,min:69.72,top:96.85},
+         2569:{s:92.12,prev:84.88,lv:4,lvn:'Integrated',pol:77.32,pub:79.55,min:75.07,top:95.16}};
+var CRIT={2568:[4,4,4],2569:[4,4,5],2570:[5,5,5]};
+var LVCOL={1:'var(--l1)',2:'var(--l2)',3:'var(--l3)',4:'var(--l4)',5:'var(--l5)'};
+var LVNAME={2:'Developing',3:'Defined',4:'Integrated',5:'Optimizing'};
+
+var st={year:2569,tab:'overview',on:{min:true,top:true},cy:2569,pil:3,sim:{},acts:{}};
+try{var saved=JSON.parse(localStorage.getItem('dga-dash')||'{}');if(saved.tab)st.tab=saved.tab;if(saved.year)st.year=saved.year;}catch(e){}
+function save(){try{localStorage.setItem('dga-dash',JSON.stringify({tab:st.tab,year:st.year}))}catch(e){}}
+
+function f2(v){return v.toFixed(2)}
+function sg(v){return (v>=0?'+':'−')+Math.abs(v).toFixed(2)}
+function lvl(l){return '<span class="lvl" style="background:'+LVCOL[l]+';color:'+(l===5?'var(--on-l5)':'var(--on-level)')+'">'+l+'</span>'}
+function yi(y){return y-2567}
+function levelsOf(y){return P.map(function(p){return p.lv[yi(y)]})}
+function kprScore(levels,y){
+  var c=CRIT[y]; if(!c) return null;
+  var n3=levels.filter(function(x){return x>=3}).length,n4=levels.filter(function(x){return x>=4}).length,n5=levels.filter(function(x){return x>=5}).length;
+  if(n5>=c[2])return 100; if(n4>=c[1])return 75; if(n3>=c[0])return 50; return 0;
+}
+function $(id){return document.getElementById(id)}
+
+function renderHeader(){
+  $('yearSeg').innerHTML=[2567,2568,2569].map(function(y){return '<button type="button" data-year="'+y+'" aria-pressed="'+(st.year===y)+'">'+y+'</button>'}).join('');
+}
+function renderKpis(){
+  var y=st.year,t=TOT[y],lv=levelsOf(y),n5=lv.filter(function(x){return x===5}).length,n4=lv.filter(function(x){return x>=4}).length,k=kprScore(lv,y);
+  var d=t.s-t.prev;
+  var gap=t.top-t.s;
+  var html=''+
+  '<div class="kpi"><span class="lab">คะแนนรวม '+y+'</span><span class="val">'+f2(t.s)+'%</span><span class="sub"><span class="chip '+(d>=0?'good':'warn')+'">'+sg(d)+' จุด</span> จากปีก่อน'+(y===2567?' (ปรับ)':'')+'</span></div>'+
+  '<div class="kpi"><span class="lab">ระดับความพร้อม</span><span class="val">'+t.lv+'</span><span class="sub">'+t.lvn+'</span></div>'+
+  '<div class="kpi"><span class="lab">ห่างอันดับ 1</span><span class="val">'+f2(gap)+'</span><span class="sub">จุด (อันดับ 1 = '+f2(t.top)+'%)</span></div>'+
+  '<div class="kpi"><span class="lab">เทียบเฉลี่ยกลุ่มนโยบายฯ</span><span class="val">'+sg(t.s-t.pol)+'</span><span class="sub">จุด (กลุ่ม '+f2(t.pol)+'%)</span></div>'+
+  '<div class="kpi"><span class="lab">Pillar ระดับ 5</span><span class="val">'+n5+'<span style="font-size:18px;color:var(--muted)"> /7</span></span><span class="sub">ระดับ 4 ขึ้นไป '+n4+' มิติ</span></div>'+
+  '<div class="kpi"><span class="lab">คะแนน ก.พ.ร. 2.1</span><span class="val">'+(k===null?'—':k)+'</span><span class="sub">'+(k===null?'ไม่มีเกณฑ์ปีนี้ในเอกสาร':(k===100?'เป้าหมายขั้นสูง':k===75?'เป้าหมายมาตรฐาน':'เป้าหมายขั้นต้น'))+'</span></div>';
+  $('kpis').innerHTML=html;
+}
+var TABS=[['overview','ภาพรวมคะแนน'],['pillar','7 Pillar'],['kpr','ก.พ.ร. และจำลองผล'],['plan','ต้นเหตุและแผน'],['track','ติดตามข้อเสนอแนะ 68→69']];
+function renderTabs(){
+  $('tabs').innerHTML=TABS.map(function(t){return '<button type="button" role="tab" id="tab-'+t[0]+'" aria-controls="panel" aria-selected="'+(st.tab===t[0])+'" data-tab="'+t[0]+'">'+t[1]+'</button>'}).join('');
+}
+
+/* ---------- overview ---------- */
+function trendSvg(){
+  var W=900,H=360,L=48,R=16,T=34,B=20,x=function(i){return L+i*((W-L-R)/8)},y=function(v){return T+(100-v)*(H-T-B)/60};
+  var g='';
+  [40,50,60,70,80,90,100].forEach(function(v){g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="var(--grid)"/><text x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="12">'+v+'%</text>'});
+  var ci=YRS.indexOf(st.cy);
+  g+='<rect x="'+(x(ci)-40)+'" y="'+(T-26)+'" width="80" height="'+(H-T-B+30)+'" rx="10" fill="var(--brand-soft)"/>';
+  SER.slice().reverse().forEach(function(s){
+    if(s.k!=='nhco'&&!st.on[s.k])return;
+    var d='',pen=false,pts='';
+    s.v.forEach(function(v,i){if(v===null){pen=false;return}d+=(pen?' L':' M')+x(i)+' '+y(v);pen=true;
+      pts+='<circle cx="'+x(i)+'" cy="'+y(v)+'" r="'+(s.k==='nhco'?5.5:3.5)+'" fill="var(--surface)" stroke="var('+s.c+')" stroke-width="'+(s.k==='nhco'?3:2.5)+'"/>'});
+    g+='<path d="'+d+'" fill="none" stroke="var('+s.c+')" stroke-width="'+(s.k==='nhco'?3.5:2.2)+'" stroke-linecap="round" stroke-linejoin="round"'+(s.dash?' stroke-dasharray="'+s.dash+'"':'')+'/>'+pts;
+  });
+  SER[0].v.forEach(function(v,i){
+    var on=i===ci;
+    g+='<rect x="'+(x(i)-29)+'" y="'+(y(v)-31)+'" width="58" height="20" rx="10" fill="'+(on?'var(--brand)':'var(--surface)')+'" stroke="var(--brand)" stroke-width="1.2"/>'+
+       '<text x="'+x(i)+'" y="'+(y(v)-17)+'" text-anchor="middle" font-size="12" font-weight="700" style="fill:'+(on?'#fff':'var(--brand-ink)')+'">'+f2(v)+(YRS[i]===2566?'*':'')+'</text>';
+  });
+  return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="กราฟเส้นคะแนนรวม DGA ของ สช. ปี 2561 ถึง 2569">'+g+'</svg>';
+}
+function chartDetail(){
+  var i=YRS.indexOf(st.cy),s=SER[0].v[i],prev=i>0?SER[0].v[i-1]:null;
+  var rows=SER.slice(1).filter(function(x){return x.v[i]!==null}).map(function(x){var d=s-x.v[i];
+    return '<div class="rowx"><i style="background:var('+x.c+')"></i><span>'+x.name+'</span><b>'+f2(x.v[i])+'%</b><span class="d '+(d>=0?'pos':'neg')+'">สช. '+(d>=0?'สูงกว่า ':'ต่ำกว่า ')+Math.abs(d).toFixed(2)+' จุด</span></div>'}).join('');
+  return '<div class="card detail"><div style="display:flex;justify-content:space-between;align-items:baseline"><h3>ปี '+st.cy+'</h3><span class="hint" style="margin:0">'+(st.cy===2566?'* คะแนนปรับ':'')+'</span></div>'+
+    '<div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><span class="big">'+f2(s)+'%</span>'+(prev===null?'':'<span class="chip '+(s>=prev?'good':'warn')+'">'+sg(s-prev)+' จากปีก่อน</span>')+'</div>'+
+    (TOT[st.cy]?'<div style="margin-top:6px;font-weight:600;color:var(--brand-ink)">ระดับ '+TOT[st.cy].lv+' '+TOT[st.cy].lvn+'</div>':'')+
+    '<div class="rows">'+(rows||'<span class="hint">ไม่มีข้อมูลกลุ่มเปรียบเทียบของปีนี้</span>')+'</div></div>';
+}
+function yearCards(){
+  var best={2567:'P4 บริการภาครัฐ 86.57%',2568:'P5 Smart Back Office 100%',2569:'P5 Smart Back Office 100%'};
+  var worst={2567:'P2 ด้านข้อมูล 38.33%',2568:'P3 ศักยภาพบุคลากร 59.55%',2569:'P3 ศักยภาพบุคลากร 84.31%'};
+  return [2567,2568,2569].map(function(y){var t=TOT[y];
+    return '<button type="button" class="yc" data-year="'+y+'" aria-pressed="'+(st.year===y)+'"><div class="top"><span class="y">ปี '+y+'</span><span class="m">ระดับ '+t.lv+' '+t.lvn+'</span></div>'+
+      '<div class="s">'+f2(t.s)+'%</div><div class="scale">'+[1,2,3,4,5].map(function(k){return '<span class="'+(k<=t.lv?'on':'')+'"></span>'}).join('')+'</div>'+
+      '<div class="kv"><div><span class="m">เทียบกลุ่มนโยบายฯ</span><b class="num">'+sg(t.s-t.pol)+'</b></div><div><span class="m">ห่างอันดับ 1</span><b class="num">'+f2(t.top-t.s)+'</b></div>'+
+      '<div><span class="m">Pillar สูงสุด</span><b>'+best[y]+'</b></div><div><span class="m">Pillar ต่ำสุด</span><b>'+worst[y]+'</b></div></div></button>'}).join('');
+}
+function renderOverview(){
+  var tg=SER.slice(1).map(function(s){var on=!!st.on[s.k];return '<button type="button" class="tg" data-toggle="'+s.k+'" aria-pressed="'+on+'" style="border-color:'+(on?'var('+s.c+')':'var(--line)')+'"><i style="background:'+(on?'var('+s.c+')':'var(--line)')+'"></i>'+s.name+'</button>'}).join('');
+  var yb=YRS.map(function(y){return '<button type="button" data-cy="'+y+'" aria-pressed="'+(st.cy===y)+'">'+y+'</button>'}).join('');
+  return '<div class="stack"><div class="grid-2"><div class="card chart"><h3>คะแนนรวมย้อนหลัง 9 ปี</h3><p class="hint">เลือกกลุ่มเปรียบเทียบ และกดปีเพื่อดูรายละเอียด</p><div class="toggles">'+tg+'</div>'+trendSvg()+'<div class="yrs">'+yb+'</div></div>'+chartDetail()+'</div>'+
+    '<div><h3 style="margin:6px 0 10px;font-size:18px">3 ปีล่าสุด: จากระดับ 3 สู่ระดับ 4 <span class="hint" style="font-weight:400">· กดการ์ดเพื่อเปลี่ยนปีที่วิเคราะห์</span></h3><div class="grid-3">'+yearCards()+'</div></div>'+
+    '<div class="grid-4">'+
+      '<div class="card"><h3>ข้อค้นพบหลัก</h3><div class="rows" style="gap:12px;font-size:14.5px">'+
+        '<div><b class="num" style="color:var(--brand-ink);font-size:20px">+27.01</b> คะแนนรวมโต 2 ปีซ้อน 65.11 → 84.88 → 92.12 และขึ้นระดับ 4 ตั้งแต่ปี 2568</div>'+
+        '<div><b class="num" style="color:var(--brand-ink);font-size:20px">27 → 3</b> ช่องว่างกับอันดับ 1 ลดจาก 27.17 (2567) เหลือ 11.97 (2568) และ 3.04 จุด (2569)</div>'+
+        '<div><b class="num" style="color:var(--brand-ink);font-size:20px">+51.89</b> Pillar 2 ด้านข้อมูลเปลี่ยนมากที่สุด 38.33% → 90.22%</div>'+
+        '<div><b class="num" style="color:var(--brand-ink);font-size:20px">84.31%</b> Pillar 3 ศักยภาพบุคลากร ยังต่ำสุดในปี 2568–2569</div></div></div>'+
+      '<div class="card"><h3>สิ่งที่ต้องจับตา</h3><div class="rows" style="gap:12px;font-size:14.5px">'+
+        '<div><span class="chip warn">ลดระดับ</span> P4 และ P7 ลดจากระดับ 5 เป็น 4 ในปี 2569 จำนวนมิติระดับ 5 จึงคงที่ 3 มิติ</div>'+
+        '<div><span class="chip warn">เปราะ</span> P2 ค่าเฉลี่ยระดับตัวชี้วัดย่อย 4.25 ห่างเส้นระดับ 4 เพียง 0.25</div>'+
+        '<div><span class="chip amber">ก.พ.ร.</span> ปี 2569–2570 ต้องได้ระดับ 5 ใน 5 มิติ จึงจะได้ 100 คะแนน ขาดอีก 2 มิติ</div>'+
+        '<div><span class="chip good">คานงัด</span> Open Data ขยับเรื่องเดียว ช่วยทั้ง P2 และ P4</div></div></div>'+
+    '</div></div>';
+}
+
+/* ---------- pillar ---------- */
+function renderPillar(){
+  var yx=yi(st.year);
+  var rows=P.map(function(p){
+    var bars=p.v.map(function(v,i){var l=p.lv[i];return '<div class="bar'+(i===yx?' sel':'')+'"><span class="yl">'+(2567+i)+'</span><span class="t"><span style="width:'+v+'%;background:'+LVCOL[l]+'"></span></span><b>'+f2(v)+'</b><em>ระดับ '+l+'</em></div>'}).join('');
+    var d=p.v[2]-p.v[0];
+    return '<button type="button" class="prow" data-pil="'+p.id+'" aria-pressed="'+(st.pil===p.id)+'"><div><div class="pid">PILLAR '+p.id+'</div><div class="pn">'+p.th+'</div><div class="pe">'+p.en+'</div></div><div class="bars">'+bars+'</div><div class="delta pos" title="เปลี่ยนแปลง 2567→2569">'+sg(d)+'</div></button>';
+  }).join('');
+  var p=P[st.pil-1],bv=p.b[st.year];
+  var bench=[['สช.',p.v[yx],'var(--brand)']].concat(bv.map(function(v,i){return [BN[i],v,i===0?'var(--s-top)':'var(--faint)']})).map(function(b){
+    return '<div class="hb"><span>'+b[0]+'</span><span class="t"><span style="width:'+b[1]+'%;background:'+b[2]+'"></span></span><b>'+f2(b[1])+'</b></div>'}).join('');
+  var subs=p.sub.map(function(s){return '<div class="hb"><span style="display:flex;gap:8px;align-items:center">'+lvl(s[2])+'<span>'+s[0]+'</span></span><span class="t"><span style="width:'+s[1]+'%;background:'+LVCOL[s[2]]+';box-shadow:inset 0 0 0 1px rgba(26,26,46,.18)"></span></span><b>'+f2(s[1])+'</b></div>'}).join('');
+  var legend='<div class="legend"><span>สีแท่ง = ระดับความพร้อม</span>'+[2,3,4,5].map(function(l){return '<span><i style="background:'+LVCOL[l]+'"></i>'+l+' '+LVNAME[l]+'</span>'}).join('')+'</div>';
+  return '<div class="grid-2b"><div class="card"><h3>7 ตัวชี้วัดหลัก (Pillar) ปี 2567–2569</h3><p class="hint">กด Pillar เพื่อดูรายละเอียด · แถบตัวเข้มคือปี '+st.year+'</p>'+legend+'<div class="pl">'+rows+'</div></div>'+
+    '<div class="card" style="align-self:start;border:2px solid var(--brand)"><div class="pid" style="font-family:var(--num);font-size:13px;font-weight:600;color:var(--brand-2)">PILLAR '+p.id+' · '+p.en+'</div><h3 style="font-size:22px;color:var(--brand-ink)">'+p.th+'</h3>'+
+    '<div class="note" style="margin:10px 0 14px">'+p.note+'</div>'+
+    '<div class="grid-3" style="gap:8px;margin-bottom:16px">'+p.v.map(function(v,i){return '<div style="border:1px solid var(--line);border-radius:10px;padding:8px 10px'+(i===yx?';border-color:var(--brand)':'')+'"><div class="hint" style="margin:0">ปี '+(2567+i)+'</div><div class="num" style="font-size:20px;font-weight:700;color:var(--brand-ink)">'+f2(v)+'</div>'+lvl(p.lv[i])+'</div>'}).join('')+'</div>'+
+    '<h3 style="font-size:15px">เทียบกลุ่มอ้างอิง ปี '+st.year+'</h3><div class="rows" style="margin-bottom:16px">'+bench+'</div>'+
+    '<h3 style="font-size:15px">ตัวชี้วัดย่อย (Sub-Pillar) ปี 2569</h3><div class="rows">'+subs+'</div></div></div>';
+}
+
+/* ---------- kpr ---------- */
+function renderKpr(){
+  var names=['P1 นโยบาย','P2 ข้อมูล','P3 บุคลากร','P4 บริการ','P5 Back Office','P6 โครงสร้างฯ','P7 เทคโนโลยี'];
+  var mx='<table><thead><tr><th>ปี</th>'+names.map(function(n){return '<th>'+n.replace(' ','<br>')+'</th>'}).join('')+'<th>ระดับ 5</th><th>ระดับ 4+</th></tr></thead><tbody>'+
+    [2567,2568,2569].map(function(y){var lv=levelsOf(y),pv=y>2567?levelsOf(y-1):null;
+      return '<tr class="'+(y===st.year?'cur':'')+'"><td class="y">'+y+'</td>'+lv.map(function(l,i){var ch=pv?l-pv[i]:0;return '<td style="background:'+LVCOL[l]+';color:'+(l===5?'var(--on-l5)':'var(--on-level)')+'">'+l+(ch>0?' ▲':ch<0?' ▼':'')+'</td>'}).join('')+
+      '<td class="c5">'+lv.filter(function(x){return x===5}).length+'</td><td class="c4">'+lv.filter(function(x){return x>=4}).length+'</td></tr>'}).join('')+'</tbody></table>';
+  var cy=[2568,2569,2570],L69=levelsOf(2569);
+  var stepN=[['ขั้นต้น','50',3],['มาตรฐาน','75',4],['ขั้นสูง','100',5]];
+  var crit='<table><thead><tr><th>ขั้นเป้าหมาย</th>'+cy.map(function(y){return '<th>ปี '+y+(y===2570?' (เป้า)':'')+'</th>'}).join('')+'</tr></thead><tbody>'+
+    stepN.map(function(s,si){return '<tr class="'+(si===2?'hi':'')+'"><td><span class="pts">'+s[1]+'</span><br><span class="hint">'+s[0]+'</span></td>'+cy.map(function(y){
+      var need=CRIT[y][si],lv=y===2568?levelsOf(2568):L69,n=lv.filter(function(x){return x>=s[2]}).length,ok=n>=need;
+      return '<td>ระดับ '+s[2]+(s[2]<5||y!==2568?' ขึ้นไป':'')+' ใน '+need+' มิติ<br><span class="chip '+(ok?'good':'warn')+'" style="margin-top:6px">'+(ok?'✓ ได้ '+n+' มิติ':'✗ '+n+'/'+need)+'</span></td>'}).join('')+'</tr>'}).join('')+
+    '<tr><td><b>คะแนนที่ได้</b></td><td class="pts">'+kprScore(levelsOf(2568),2568)+'</td><td class="pts">'+kprScore(L69,2569)+'</td><td><span class="pts">'+kprScore(L69,2570)+'</span><br><span class="hint">ถ้าคงระดับปี 2569</span></td></tr></tbody></table>';
+  var cand=[[4,'P4 บริการภาครัฐ','ขาด Public Participation 1 ตัว'],[7,'P7 เทคโนโลยี','ขาด AI Initiative 1 ตัว'],[3,'P3 บุคลากร','ขาด 2 ตัว (Competency, Leadership)'],[2,'P2 ข้อมูล','ขาด 2 ตัว (Open Data 2 ขั้น, Shared Data)']];
+  var sim=cand.map(function(c){var on=!!st.sim[c[0]];return '<button type="button" data-sim="'+c[0]+'" aria-pressed="'+on+'"><span class="box">'+(on?'✓':'')+'</span><span><b>'+c[1]+'</b> ขึ้นระดับ 5<br><span style="font-size:12.5px;font-weight:400;color:var(--muted)">'+c[2]+'</span></span></button>'}).join('');
+  var simLv=L69.map(function(l,i){return st.sim[i+1]?5:l}),n5=simLv.filter(function(x){return x===5}).length;
+  var s69=kprScore(simLv,2569),s70=kprScore(simLv,2570);
+  return '<div class="stack"><div class="grid-2b"><div class="card"><h3>ระดับความพร้อมราย Pillar (มิติ)</h3><p class="hint">ตามตารางสีในรายงาน DGA · ▲▼ เทียบปีก่อน</p><div class="mx">'+mx+'</div>'+
+    '<div class="note" style="margin-top:12px">ปี 2569 จำนวนมิติระดับ 5 <b>คงที่ 3 มิติ</b> แต่เป็นคนละชุดกับปีก่อน: P1 และ P6 ขึ้นเป็นระดับ 5 ขณะที่ <b>P4 และ P7 ลดจากระดับ 5 เป็นระดับ 4</b></div></div>'+
+    '<div class="card"><h3>เกณฑ์ ก.พ.ร. ตัวชี้วัด 2.1 (น้ำหนักร้อยละ 10)</h3><p class="hint">จำนวนมิติ = Pillar ที่ได้ระดับตามเกณฑ์ · ปี 2567 ไม่มีเกณฑ์ในเอกสาร</p><div class="crit">'+crit+'</div></div></div>'+
+    '<div class="card"><h3>จำลองผล: ถ้ายก Pillar เหล่านี้ขึ้นระดับ 5</h3><p class="hint">เริ่มจากระดับปี 2569 (P1, P5, P6 ระดับ 5 อยู่แล้ว) · กดเลือกเพื่อดูคะแนน ก.พ.ร.</p><div class="sim">'+sim+'</div>'+
+    '<div class="result"><div><span class="hint" style="margin:0">Pillar ระดับ 5</span><div class="n">'+n5+' <span style="font-size:16px;color:var(--muted)">/7</span></div></div>'+
+    '<div><span class="hint" style="margin:0">คะแนนตามเกณฑ์ปี 2569</span><div class="n">'+s69+'</div></div>'+
+    '<div><span class="hint" style="margin:0">คะแนนตามเกณฑ์ปี 2570</span><div class="n">'+s70+'</div></div></div>'+
+    '<p class="hint" style="margin:10px 0 0">'+(n5>=5?'ครบ 5 มิติระดับ 5 ได้เป้าหมายขั้นสูง 100 คะแนน':'ต้องได้ระดับ 5 อีก '+(5-n5)+' มิติ จึงจะได้ 100 คะแนน · ทางที่ใช้แรงน้อยที่สุดคือ P4 + P7 เพราะขาดตัวชี้วัดย่อยเพียงตัวละ 1 ตัว')+'</p></div></div>';
+}
+
+/* ---------- plan ---------- */
+var CAUSES=[
+ {p:'PILLAR 3 · ศักยภาพบุคลากร',t:'Digital Competency',s:'73.27%',l:4,
+  crit:'คะแนนเฉลี่ยถ่วงน้ำหนักจากการประเมินทักษะดิจิทัลของบุคลากรเกิน 80% ถ่วงด้วยสัดส่วนคนเข้าทดสอบเทียบกลุ่มตัวอย่างที่ควรสอบ (Krejcie & Morgan)',
+  cause:'เป็นไปได้ 2 ทาง: คนเข้าสอบไม่ครบจำนวน หรือเข้าครบแต่คะแนนต่ำ วิธีแก้ต่างกันสิ้นเชิง',
+  todo:'ขอข้อมูลดิบจาก HR เพื่อแยกกรณี ถ้าเป็นเรื่องจำนวนคน รณรงค์ให้ครบโควตาได้ในไม่กี่เดือน ต้นทุนต่ำ (quick win) · ต้องยก Digital Leadership (80%, ระดับ 4) ด้วย P3 จึงจะขึ้นระดับ 5',d:'ต่ำ'},
+ {p:'PILLAR 4 · บริการภาครัฐ',t:'Public Participation',s:'86.67%',l:4,
+  chips:[['e-Consultation',5],['e-Information',4],['e-Decision Making',4]],
+  crit:'e-Information ได้ 5 ใน 6 ข้อ และ e-Decision Making ได้ 4 ใน 5 ข้อ',
+  cause:'สช. มีเวทีสมัชชาสุขภาพและกระบวนการมีส่วนร่วมอยู่แล้ว ต้นเหตุน่าจะอยู่ที่ <b>ไม่มีหลักฐานเชื่อมว่าความเห็นออนไลน์ไหลไปสู่มติหรือข้อเสนอนโยบายใด</b> ข้อที่มักขาด: ชุดข้อมูลเปิดการใช้จ่ายงบประมาณ, กิจกรรมใช้ข้อมูลเปิด, การนำความเห็นกลุ่มเปราะบางไปใช้ตัดสินใจ, co-creation บริการออนไลน์, งบประมาณแบบมีส่วนร่วม',
+  todo:'จัดทำหลักฐานเส้นทาง "ความเห็นประชาชน → มติ/นโยบาย" แยกประเด็นกลุ่มเปราะบาง และออกแบบ AI-eParticipate ให้บันทึกเส้นทางความเห็นจนถึงผลการตัดสินใจ',d:'กลาง'},
+ {p:'PILLAR 7 · เทคโนโลยีดิจิทัล',t:'AI Initiative',s:'80.00%',l:4,
+  crit:'ทำได้ 4 ใน 5 ด้าน: นโยบาย AI, โครงสร้างกำกับดูแล, กลยุทธ์ AI, การกำกับการปฏิบัติงาน AI (AI Operation), การใช้ AI จนเกิดผลลัพธ์เป็นรูปธรรม',
+  cause:'ขาดอีกเพียง 1 ด้าน ที่มักขาดคือ AI Operation และผลลัพธ์ที่วัดได้',
+  todo:'วัดเวลาที่ลดลงจากระบบสรุปการประชุม Ex-com ด้วย AI พร้อมหลักฐานการใช้งาน และออกแนวปฏิบัติการใช้ AI ภายใน (ข้อมูลใดห้ามนำเข้า จุดใดต้องมีคนตรวจทาน)',d:'ต่ำ–กลาง'},
+ {p:'PILLAR 2 · ข้อมูล',t:'Open Data · Shared Data',s:'60.00%',l:3,
+  crit:'Open Data 3→4: Structured Data มากกว่า Unstructured และบางส่วนเครื่องอ่านได้ (CSV, JSON) · 4→5: ทุกชุดเครื่องอ่านได้ จำนวนชุดเพิ่มจากปีก่อน และส่วนใหญ่เป็นปัจจุบัน · Shared Data 4→5: แลกเปลี่ยนผ่านช่องทางกลาง (GDX, Linkage Center, DXC) ผ่านธรรมาภิบาลข้อมูลแล้ว และระบุจำนวนชุดได้',
+  cause:'Data Governance ได้ระดับ 5 แล้ว แต่ <b>ผลผลิตจากธรรมาภิบาลข้อมูลยังไม่ไหลออกเป็นข้อมูลเปิดและข้อมูลแลกเปลี่ยน</b>',
+  todo:'ปีหน้าตั้งเป้า Open Data ขึ้นระดับ 4 และไม่มีตัวชี้วัดย่อยใดตก การขึ้นระดับ 5 ต้องขยับ Open Data 2 ขั้นและ Shared Data 1 ขั้น เป็นงาน 1–2 ปี',d:'สูง'}
+];
+var DIFF={'ต่ำ':'good','ต่ำ–กลาง':'good','กลาง':'amber','สูง':'warn'};
+var ACTS=[['1','ตรวจสาเหตุ Digital Competency (คนเข้าสอบไม่ครบ หรือคะแนนต่ำ) แล้วรณรงค์ให้ครบโควตา','Pillar 3 → 5 (ต้องยก Digital Leadership ด้วย)','ต่ำ'],
+['2','ทำหลักฐานผลลัพธ์ AI ที่ใช้งานจริง พร้อมแนวปฏิบัติ AI Operation','Pillar 7 → 5','ต่ำ–กลาง'],
+['3','แปลงชุดข้อมูลเปิดเป็น CSV/JSON ทุกชุด อัปเดตให้เป็นปัจจุบัน และเพิ่มชุดใหม่ (เริ่มจากข้อมูลงบประมาณ)','กัน Pillar 2 หลุด และช่วย Pillar 4','กลาง'],
+['4','จัดทำหลักฐานเส้นทาง "ความเห็นประชาชน → มติหรือนโยบาย" แยกประเด็นกลุ่มเปราะบาง','Pillar 4 → 5','กลาง'],
+['5','เชื่อมแลกเปลี่ยนข้อมูลผ่าน GDX หรือ DXC อย่างน้อย 1 ชุด','Pillar 2 (ระยะยาว)','สูง']];
+function renderPlan(){
+  var cards=CAUSES.map(function(c){
+    return '<div class="card cause"><div class="hd"><div><div class="pid">'+c.p+'</div><h4>'+c.t+'</h4></div><div style="display:flex;gap:8px;align-items:center"><b class="num" style="font-size:20px;color:var(--brand-ink)">'+c.s+'</b>'+lvl(c.l)+'</div></div>'+
+      (c.chips?'<div class="subchips">'+c.chips.map(function(x){return '<span class="chip" style="background:'+LVCOL[x[1]]+';color:'+(x[1]===5?'var(--on-l5)':'var(--on-level)')+'">'+x[0]+' · '+x[1]+'</span>'}).join('')+'</div>':'')+
+      '<dl><dt class="c1">เกณฑ์ระดับ 5</dt><dd>'+c.crit+'</dd><dt class="c2">ต้นเหตุ</dt><dd>'+c.cause+'</dd><dt class="c3">สิ่งที่ต้องทำ</dt><dd>'+c.todo+'</dd></dl>'+
+      '<div style="display:flex;justify-content:flex-end"><span class="chip '+DIFF[c.d]+'">ความยาก: '+c.d+'</span></div></div>'}).join('');
+  var G=[['P1 นโยบาย',5.00],['P2 ข้อมูล',4.25],['P3 บุคลากร',4.33],['P4 บริการ',4.75],['P5 Back Office',5.00],['P6 โครงสร้างฯ',5.00],['P7 เทคโนโลยี',4.50]];
+  var gauge=G.map(function(g){var pos=(g[1]-3)/2*100,col=g[1]>=5?'var(--l5)':(g[1]<4.3?'var(--warn)':'#1F5F99');
+    return '<div class="gauge"><span>'+g[0]+'</span><span class="tr"><span class="four"></span><span class="dot" style="left:'+pos+'%;background:'+col+'"></span></span><b style="color:'+col+'">'+g[1].toFixed(2)+'</b></div>'}).join('');
+  var done=Object.keys(st.acts).filter(function(k){return st.acts[k]}).length;
+  var acts=ACTS.map(function(a){var on=!!st.acts[a[0]];return '<tr data-act="'+a[0]+'" aria-pressed="'+on+'" tabindex="0"><td><span class="check">'+(on?'✓':'')+'</span></td><td><span class="no">'+a[0]+'</span></td><td>'+a[1]+'</td><td class="eff">'+a[2]+'</td><td><span class="chip '+DIFF[a[3]]+'">'+a[3]+'</span></td></tr>'}).join('');
+  return '<div class="stack"><div><h3 style="margin:0 0 10px;font-size:18px">ต้นเหตุรายตัวชี้วัดย่อย และสิ่งที่ต้องทำเพื่อขึ้นระดับ 5</h3><div class="grid-4">'+cards+'</div></div>'+
+    '<div class="grid-2b"><div class="card"><h3>ระยะปลอดภัยจากการหลุดระดับ 4</h3><p class="hint">ค่าเฉลี่ยระดับตัวชี้วัดย่อย ปี 2569 · เส้นฟ้า = 4.00 · สเกล 3.0–5.0</p><div class="rows">'+gauge+'</div>'+
+      '<div class="note" style="margin-top:12px;background:var(--warn-soft)"><b style="color:var(--warn)">P2 ห่างเส้นระดับ 4 เพียง 0.25</b> ถ้าตัวชี้วัดย่อยลดรวม 2 ขั้นจะหลุดเป็นระดับ 3 จุดเปราะ: Open Data ต้องมีชุดใหม่และอัปเดตทุกปี · Data Privacy 93.33% งาน PDPA รายปีหลุดก็ตกได้ · Data Governance ต้องรายงานคณะกรรมการและทบทวนนโยบายเป็นรอบ · P7 มีเพียง 2 ตัวชี้วัดย่อย ผันผวนง่าย</div></div>'+
+      '<div class="card dark"><span class="hint" style="margin:0">จุดคานงัด</span><h3 style="font-size:22px;margin:4px 0 12px">Open Data ขยับเรื่องเดียว กระทบหลาย Pillar</h3><div class="lev">'+
+        '<div class="n"><b>P2</b> Open Data 3 → 4 กันไม่ให้ Pillar 2 หลุดระดับ</div><div class="n"><b>P4</b> e-Information ข้อ 5 ชุดข้อมูลเปิดด้านงบประมาณ · ข้อ 6 กิจกรรมใช้ข้อมูลเปิด</div>'+
+        '<div class="n"><b>P4</b> e-Consultation ข้อ 6 ช่องทางขอชุดข้อมูลเปิด</div><div class="n"><b>P2</b> Data Governance ระดับ 5 ด้านการนำข้อมูลไปใช้ประโยชน์</div></div>'+
+        '<p class="hint" style="margin:12px 0 0">สช. มีข้อมูลการใช้จ่ายงบประมาณอยู่แล้วใน dashboard งบประมาณรายสัปดาห์ เริ่มเปิดเป็น CSV/JSON ได้ทันที</p></div></div>'+
+    '<div class="card"><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline"><h3>ลำดับการดำเนินการที่แนะนำ</h3><span class="chip good">ทำแล้ว '+done+' / 5</span></div><p class="hint">กดแถวเพื่อทำเครื่องหมายระหว่างประชุม (จำไว้เฉพาะหน้าจอนี้)</p><div class="acts"><table><thead><tr><th></th><th>ลำดับ</th><th>งาน</th><th>ผลต่อระดับ</th><th>ความยาก</th></tr></thead><tbody>'+acts+'</tbody></table></div>'+
+      '<div class="grid-4" style="margin-top:14px"><div class="note" style="background:var(--good-soft)"><b style="color:var(--good)">เป้าที่เอื้อมถึง:</b> P7 และ P4 ขาดตัวชี้วัดย่อยเพียงตัวละ 1 ตัว ถ้าทำข้อ 2 และ 4 สำเร็จ จะได้ระดับ 5 รวม 5 มิติ ตรงเกณฑ์ ก.พ.ร. ขั้นสูง 100 คะแนน</div><div class="note" style="background:var(--amber-soft)"><b style="color:var(--amber)">ระดับ 5 ไม่คงอยู่อัตโนมัติ:</b> เกณฑ์หลายข้อผูกกับ "12 เดือนที่ผ่านมา" หรือ "เพิ่มขึ้นจากปีก่อน" ควรกำหนดเจ้าของรายตัวชี้วัดย่อย และเก็บหลักฐานต่อเนื่องตลอดปี</div></div></div></div>';
+}
+
+
+var TRACK=[
+ {v:'fixed',p:'P1',n:'Cybersecurity Policy',a:4,b:5,y68:'Risk Management และ Policies & Guidelines "อยู่ระหว่างดำเนินการ"',y69:'ครบ 11 ข้อ "แล้วเสร็จ" แนบหลักฐานเพิ่ม (P1.2.1.2, P1.2.1.3)',act:'รักษาไว้: ทบทวนเอกสารทุกปีและเก็บในคลังหลักฐาน'},
+ {v:'fixed',p:'P3',n:'Training & Development',a:2,b:5,y68:'ทักษะ Digital Governance ไม่มีการอบรมและไม่มีการวัดผล (ขาด 1 ใน 7 ด้าน)',y69:'อบรมและวัดผลครบทั้ง 7 ด้าน',act:'รักษาไว้: แผนอบรมรายปีต้องครอบคลุม 7 ด้าน พร้อมผลวัดหลังอบรม'},
+ {v:'fixed',p:'P3',n:'Digital Leadership · คุณสมบัติ DCIO',a:4,b:5,y68:'DCIO "ไม่เข้าร่วมหลักสูตร"',y69:'DCIO "เข้าร่วมหลักสูตร" ผู้บริหารด้านดิจิทัล',act:'ต่อยอด: ด้านการผลักดันโครงการของ DCIO ยังระดับ 4'},
+ {v:'fixed',p:'P6',n:'Cybersecurity · นำมาตรฐานมาใช้',a:3,b:5,y68:'อ้าง NIST CSF แต่หลักฐานเป็นเอกสารกรอบงานภายในของ สช.',y69:'CIS Controls + ISO/IEC 15408 พร้อมหลักฐาน และซ้อมแผน CSIRP (TTX 2026)',act:'รักษาไว้: หลักฐานต้องแสดงการปฏิบัติตามมาตรฐานจริงทุกปี'},
+ {v:'fixed',p:'P6',n:'Cybersecurity · การดำเนินการ',a:4,b:5,y68:'ซ้อมแผนรับมือภัย และส่งเสริมผู้หญิงในงานไซเบอร์ "อยู่ระหว่างดำเนินการ"',y69:'ทั้งสองข้อ "มี" พร้อมหลักฐานปี 69',act:'รักษาไว้: ซ้อมแผนอย่างน้อยปีละครั้ง'},
+ {v:'part',p:'P2',n:'Shared Data',a:2,b:4,y68:'ช่องทางแลกเปลี่ยน "อื่นๆ" (dashboard ของ สช.) · จัดประเภทข้อมูล "บางชุด"',y69:'ช่องทาง "MOU / หนังสือขอข้อมูล" · จัดประเภทข้อมูลยัง "บางชุด"',act:'ขึ้นระดับ 5: แลกเปลี่ยนผ่าน GDX / Linkage Center / DXC อย่างน้อย 1 ชุด และจัดประเภทข้อมูลให้ครบทุกชุด'},
+ {v:'part',p:'P3',n:'Digital Leadership · การผลักดันโครงการของ DCIO',a:3,b:4,y68:'ระบุโครงการ เช่น Telemedicine',y69:'ตอบ "มี" โครงการที่ผลักดัน',act:'ขึ้นระดับ 5: แสดงผลลัพธ์ของโครงการที่ DCIO ผลักดันเป็นตัวเลข'},
+ {v:'unk',p:'P2',n:'Open Data',a:3,b:3,y68:'เผยแพร่ผ่าน nationalhealth.gdcatalog.go.th',y69:'คำตอบเหมือนปี 68 (DGA ตรวจนับชุดข้อมูลจาก data.go.th เอง)',act:'ตรวจรายงานคุณภาพชุดข้อมูลบน data.go.th: Structured และเครื่องอ่านได้กี่ชุด แล้วแปลงเป็น CSV/JSON'},
+ {v:'unk',p:'P3',n:'Digital Competency',a:4,b:4,y68:'ไม่มีในแบบสำรวจ (ใช้ผลจาก EWE Platform)',y69:'ไม่มีในแบบสำรวจ · ปี 69 ได้ 73.27%',act:'ขอข้อมูลจาก HR/EWE: จำนวนผู้เข้าทดสอบเทียบกลุ่มตัวอย่าง และคะแนนเฉลี่ย'},
+ {v:'down',p:'P4',n:'Public Participation · e-Information',a:5,b:4,y68:'"มี" 5 จาก 6 ข้อ (ข้อ 6 ข้อมูลการประกวด/Hackathon มีหลักฐาน)',y69:'"มี" 4 จาก 6 ข้อ: ข้อ 6 ตอบ "ไม่มี" · ข้อ 5 ชุดข้อมูลเปิดด้านงบประมาณ "ไม่มี" ทั้งสองปี',act:'แก้ง่ายที่สุด: เปิดชุดข้อมูลงบประมาณ หรือแนบหลักฐานกิจกรรมที่ใช้ข้อมูลเปิด ข้อใดข้อหนึ่ง'},
+ {v:'down',p:'P4',n:'Public Participation · e-Decision Making',a:5,b:4,y68:'"มี" 4 จาก 5 ข้อ · ข้อ 1 แนบมติสมัชชาสุขภาพแห่งชาติและตัวอย่างความคิดเห็นที่ถูกนำไปใช้',y69:'"มี" 4 จาก 5 ข้อ · ข้อ 1 แนบคู่มือและโปสเตอร์ ซึ่งไม่พิสูจน์ว่าความเห็นนำไปสู่การตัดสินใจ',act:'กลับไปใช้หลักฐานเชิงผลลัพธ์: ความเห็นออนไลน์ → มติ/นโยบาย และแยกประเด็นกลุ่มเปราะบาง'},
+ {v:'new',p:'P7',n:'AI Initiative (ตัวชี้วัดใหม่ปี 69)',a:null,b:4,y68:'ยังไม่มีตัวชี้วัดนี้',y69:'มีนโยบาย คณะกรรมการ กลยุทธ์ และผลลัพธ์ 1 โครงการ · AI Operation "ไม่มี" · ไม่มี Roadmap · ไม่มีชุดข้อมูลผ่าน Data Governance สำหรับ AI',act:'ขึ้นระดับ 5: ออกแนวปฏิบัติกำกับ AI Lifecycle/AI Service และวัดผลระบบสรุปการประชุมเป็นตัวเลข'}
+];
+var TV={fixed:['แก้แล้ว','good','var(--l5)'],part:['ดีขึ้นบางส่วน','amber','var(--l4)'],unk:['ตรวจจากแบบสำรวจไม่ได้','amber','var(--faint)'],down:['ถอยลง','warn','var(--warn)'],new:['ตัวชี้วัดใหม่','amber','var(--brand-2)']};
+function renderTrack(){
+  var f=st.tf||'all';
+  var cnt={};TRACK.forEach(function(t){cnt[t.v]=(cnt[t.v]||0)+1});
+  var sum=[['all','ทั้งหมด',TRACK.length]].concat(['fixed','part','unk','down'].map(function(k){return [k,TV[k][0],cnt[k]||0]})).map(function(x){
+    return '<button type="button" data-tf="'+x[0]+'" aria-pressed="'+(f===x[0])+'"><span class="n" style="color:'+(x[0]==='all'?'var(--brand-ink)':TV[x[0]][2])+'">'+x[2]+'</span><span class="l">'+x[1]+'</span></button>'}).join('');
+  var rows=TRACK.filter(function(t){return f==='all'||t.v===f||(f==='unk'&&t.v==='new')}).map(function(t){var v=TV[t.v];
+    return '<div class="ti" style="border-left-color:'+v[2]+'"><div><div class="pl">'+t.p+'</div><div class="nm">'+t.n+'</div><div class="lv">'+(t.a?lvl(t.a):'<span>—</span>')+' → '+lvl(t.b)+'</div><div style="margin-top:8px"><span class="chip '+v[1]+'">'+v[0]+'</span></div></div>'+
+      '<div class="cmp"><div><b>คำตอบปี 68</b>'+t.y68+'</div><div><b>คำตอบปี 69</b>'+t.y69+'</div></div>'+
+      '<div class="act"><b style="color:var(--brand-ink)">ทำต่อ:</b> '+t.act+'</div></div>'}).join('');
+  return '<div class="stack"><div class="card"><h3>ติดตามข้อเสนอแนะ ปี 2568 → 2569</h3><p class="hint">เทียบระดับในรายงาน DGA กับคำตอบและหลักฐานในแบบสำรวจของ สช. ทั้งสองปี · กดตัวเลขเพื่อกรอง</p><div class="tsum">'+sum+'</div><div class="trk">'+rows+'</div></div>'+
+    '<div class="grid-4"><div class="note" style="background:var(--good-soft)"><b style="color:var(--good)">สิ่งที่แก้สำเร็จ</b> ทุกข้อเป็นงานที่หลักฐานอยู่ในมือ สช. เอง เช่น เอกสารนโยบาย การอบรม หลักสูตร DCIO และการซ้อมแผน</div>'+
+    '<div class="note" style="background:var(--warn-soft)"><b style="color:var(--warn)">สิ่งที่ถอยลง</b> ไม่ได้เกิดจากงานหายไป แต่หลักฐานที่ส่งอ่อนลงหรือหายไป ควรทำคลังหลักฐานกลางรายข้อคำถาม เก็บไฟล์ที่เคยผ่านไว้เป็นต้นแบบ และให้เจ้าของข้อเทียบก่อนส่งทุกปี</div></div></div>';
+}
+function render(){
+  renderHeader();renderKpis();renderTabs();
+  var h=st.tab==='pillar'?renderPillar():st.tab==='kpr'?renderKpr():st.tab==='plan'?renderPlan():st.tab==='track'?renderTrack():renderOverview();
+  var pn=$('panel');pn.innerHTML=h;pn.setAttribute('role','tabpanel');pn.setAttribute('aria-labelledby','tab-'+st.tab);
+}
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-year],[data-tab],[data-toggle],[data-cy],[data-pil],[data-sim],[data-act],[data-tf]');if(!t)return;
+  if(t.dataset.year){st.year=+t.dataset.year;st.cy=st.year;save()}
+  else if(t.dataset.tab){st.tab=t.dataset.tab;save()}
+  else if(t.dataset.toggle){st.on[t.dataset.toggle]=!st.on[t.dataset.toggle]}
+  else if(t.dataset.cy){st.cy=+t.dataset.cy;if(st.cy>=2567){st.year=st.cy;save()}}
+  else if(t.dataset.pil){st.pil=+t.dataset.pil}
+  else if(t.dataset.sim){st.sim[t.dataset.sim]=!st.sim[t.dataset.sim]}
+  else if(t.dataset.act){st.acts[t.dataset.act]=!st.acts[t.dataset.act]}
+  else if(t.dataset.tf){st.tf=t.dataset.tf}
+  render();
+});
+document.addEventListener('keydown',function(e){var t=e.target.closest&&e.target.closest('[data-act]');if(t&&(e.key==='Enter'||e.key===' ')){e.preventDefault();t.click()}});
+st.cy=st.year;render();
+})();
+</script>
+
+</body></html>
